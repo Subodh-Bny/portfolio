@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import NavLinks from "./components/NavLinks";
+import { Poppins } from "next/font/google";
+// import HomeAnimatedDivs from "./components/HomeAnimateDivs";
+import MouseFollow from "./components/MouseFollow";
+import TopBar from "./components/Topbar";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -25,10 +24,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={` ${poppins.variable} antialiased bg-slate-900`}>
+        <MouseFollow />
+        <main className="container relative mx-auto py-9 h-screen">
+          {/* <HomeAnimatedDivs /> */}
+          <TopBar />
+          {/* <SocialLinks /> */}
+          {children}
+          <NavLinks />
+        </main>
       </body>
     </html>
   );
