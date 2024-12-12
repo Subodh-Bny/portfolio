@@ -63,7 +63,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <>
       <div
         ref={webRef}
-        className="rotate-90 w-[500px] absolute top-16 left-40 z-10 flex items-center justify-center"
+        className="rotate-90 w-[500px] absolute top-22 left-40 z-10 md:flex items-center justify-center hidden"
       >
         <hr className="w-full border-t-2 border-gray-500" />
         <GiSpiderAlt

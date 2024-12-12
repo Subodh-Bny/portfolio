@@ -43,13 +43,13 @@ export default function Home() {
       <div className="text-center space-y-4">
         <h1
           ref={nameRef}
-          className="text-4xl md:text-6xl lg:text-8xl font-semibold"
+          className="text-4xl md:text-6xl lg:text-8xl font-semibold text-white"
         >
           SUBODH ADHIKARI
         </h1>
         <div
           ref={subheadingsRef}
-          className="flex flex-wrap text-sm md:text-lg w-full justify-center gap-4 md:gap-9 font-mono"
+          className="flex flex-wrap text-sm md:text-lg w-full justify-center gap-4 md:gap-9 font-mono text-white"
         >
           <h3>Web Developer</h3> <span className="hidden md:block">.</span>
           <h3>Next.js</h3> <span className="hidden md:block">.</span>
@@ -58,7 +58,7 @@ export default function Home() {
       </div>
       <p
         ref={paragraphRef}
-        className="text-sm text-slate-300 max-w-4xl mt-6 font-[family-name:var(--font-poppins)]"
+        className="text-base text-slate-300 max-w-4xl mt-6 font-[family-name:var(--font-poppins)]"
       >
         Building dynamic, responsive web applications using MongoDB, Express.js,
         React, Node.js, and Next.js.

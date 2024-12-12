@@ -26,13 +26,13 @@ const TopBar = () => {
     }
   });
   return (
-    <div className="flex justify-between px-4">
+    <div className="flex justify-between px-4 items-center">
       <h1 className="select-none font-bold text-4xl font-mono cursor-pointer">
         <Link href={"/"} className="text-cyan-500">
           Subodh<span className="text-green-500">.</span>
         </Link>
       </h1>
-      <ul className="flex gap-3" ref={linkRef}>
+      <ul className="flex gap-3 text-white" ref={linkRef}>
         {links.map((link, index) => (
           <li key={index}>
             <Link href={link.href} target="_blank">

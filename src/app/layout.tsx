@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavLinks from "./components/NavLinks";
+import NavLinks from "../components/NavLinks";
 import { Poppins } from "next/font/google";
 // import HomeAnimatedDivs from "./components/HomeAnimateDivs";
-import MouseFollow from "./components/MouseFollow";
-import TopBar from "./components/Topbar";
+import MouseFollow from "../components/MouseFollow";
+import TopBar from "../components/Topbar";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600"],
@@ -24,9 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${poppins.variable} antialiased bg-slate-900`}>
+      <body
+        className={` ${poppins.variable} antialiased bg-slate-900 text-white font-[family-name:var(--font-poppins)]`}
+      >
         <MouseFollow />
-        <main className="container relative mx-auto py-9 h-screen">
+        <main className="container relative mx-auto py-8 md:py-9 h-screen">
           {/* <HomeAnimatedDivs /> */}
           <TopBar />
           {/* <SocialLinks /> */}
