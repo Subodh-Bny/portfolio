@@ -58,7 +58,7 @@ export default function Home() {
       </div>
       <p
         ref={paragraphRef}
-        className="text-base  max-w-4xl mt-6 dark:text-slate-300 text-slate-700"
+        className="text-base  max-w-4xl mt-6 dark:text-slate-300 text-slate-700 text-justify"
       >
         Building dynamic, responsive web applications using MongoDB, Express.js,
         React, Node.js, and Next.js.

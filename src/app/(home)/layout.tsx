@@ -1,16 +1,36 @@
 "use client";
-import React, { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { IoLogoReact } from "react-icons/io5";
-import { GiSpiderAlt } from "react-icons/gi";
+import React, { useRef, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { GiSpiderAlt } from "react-icons/gi";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const webRef = useRef<HTMLHRElement>(null);
-  const clickWebRef = useRef<HTMLSpanElement>(null);
-
+  const webRef = useRef<HTMLDivElement>(null);
   const { setTheme } = useTheme();
+
+  useEffect(() => {
+    const adjustWebHeight = () => {
+      const heading = document.querySelector("h3:nth-child(1)"); // Select "Web Developer" heading
+      if (heading && webRef.current) {
+        const headingRect = heading.getBoundingClientRect();
+        const webElement = webRef.current;
+
+        // Adjust the height to stretch to the top of the heading
+        const targetHeight = (headingRect.top + window.scrollY) * 2; // Account for scrolling
+        webElement.style.height = `${targetHeight}px`;
+        webElement.style.left = `${headingRect.left - 50}px`;
+        webElement.style.top = `${-headingRect.top}px`;
+      }
+    };
+
+    adjustWebHeight();
+    window.addEventListener("resize", adjustWebHeight); // Recalculate on resize
+
+    return () => {
+      window.removeEventListener("resize", adjustWebHeight);
+    };
+  }, []);
 
   useGSAP(() => {
     if (webRef.current) {
@@ -27,58 +47,27 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         }
       );
     }
-    if (clickWebRef.current) {
-      gsap.fromTo(
-        clickWebRef.current,
-        {
-          height: 0,
-          width: 0,
-          opacity: 0,
-        },
-        {
-          height: "auto",
-          width: "auto",
-          opacity: 1,
-          duration: 0.8,
-          ease: "bounce.inOut",
-        }
-      );
-    }
   });
 
   const handleClick = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
 
-    if (clickWebRef.current) {
-      clickWebRef.current.classList.remove("hidden");
-
-      gsap.fromTo(
-        clickWebRef.current,
-        { scale: 0, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.8,
-          ease: "bounce.out",
-        }
-      );
+    if (webRef.current) {
+      gsap.from(webRef.current, { y: 50, ease: "elastic", duration: 2 });
     }
   };
+
   return (
     <>
       <div
         ref={webRef}
-        className="rotate-90 w-[500px] absolute top-22 left-40 z-10 md:flex items-center justify-center hidden"
+        className="absolute   border z-10 hidden md:flex items-center justify-center border-gray-500 "
       >
-        <hr className="w-full border-t-2 border-gray-500" />
         <GiSpiderAlt
           size={25}
-          className="-rotate-90 -ml-1  cursor-pointer"
+          className="cursor-pointer absolute -bottom-2"
           onClick={handleClick}
         />
-        <span ref={clickWebRef} className="absolute -right-4 -z-20 hidden">
-          <IoLogoReact size={30} className="fill-gray-500" />
-        </span>
       </div>
 
       {children}

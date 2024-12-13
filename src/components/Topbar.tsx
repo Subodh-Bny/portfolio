@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import SideSheet from "./SideSheet";
 
 const links = [
   { icon: FaGithub, href: "https://github.com/Subodh-Bny/" },
@@ -32,8 +33,9 @@ const TopBar = () => {
           Subodh<span className="text-green-500">.</span>
         </Link>
       </h1>
+      <SideSheet />
       <ul
-        className="flex gap-3 text-slate-900 dark:text-slate-300"
+        className=" gap-3 text-slate-900 dark:text-slate-300 hidden md:flex"
         ref={linkRef}
       >
         {links.map((link, index) => (

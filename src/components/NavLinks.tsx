@@ -26,7 +26,7 @@ const NavLinks = () => {
   });
 
   return (
-    <nav className="fixed  top-1/2 -right-1 ">
+    <nav className="hidden md:block fixed  top-1/2 -right-1 ">
       <ul ref={linkRef} className="flex gap-3 -rotate-90">
         {links.map((link) => (
           <li key={link.name}>
