@@ -50,10 +50,24 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   });
 
   const handleClick = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
-
     if (webRef.current) {
-      gsap.from(webRef.current, { y: 50, ease: "elastic", duration: 2 });
+      gsap.fromTo(
+        webRef.current,
+        { y: 0 },
+        {
+          y: 20,
+          ease: "power1.inOut",
+          duration: 0.2,
+          onComplete: () => {
+            gsap.to(webRef.current, {
+              y: 0,
+              ease: "elastic",
+              duration: 3,
+            });
+            setTheme((prev) => (prev === "light" ? "dark" : "light"));
+          },
+        }
+      );
     }
   };
 
