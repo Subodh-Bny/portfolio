@@ -32,10 +32,8 @@ const NavLinks = () => {
           <li key={link.name}>
             <Link
               href={link.href}
-              className={`hover:line-through transition-all  hover:text-white ${
-                pathname === link.href
-                  ? "text-white line-through"
-                  : "text-slate-400"
+              className={`hover:line-through transition-all  dark:hover:text-white ${
+                pathname === link.href ? "hidden" : "dark:text-slate-400"
               }`}
             >
               {link.name}

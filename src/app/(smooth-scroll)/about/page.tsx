@@ -13,6 +13,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 const Section = React.memo(({ content }: { content: React.ReactNode }) => {
   return (
@@ -41,7 +42,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, margin: "-50px" }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-slate-900 dark:text-slate-100"
             >
               About Me
             </motion.h2>
@@ -50,7 +51,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: "-50px" }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-slate-400 text-base  leading-relaxed"
+              className="dark:text-slate-400 text-slate-600 text-base  leading-relaxed"
             >
               I&apos;m a developer passionate about building reliable,
               efficient, and user-friendly web applications. I enjoy creating
@@ -58,8 +59,9 @@ const About = () => {
               solutions, ensuring every project meets high standards of
               performance and usability. My expertise lies in full-stack
               development, particularly with the{" "}
-              <span className="text-white">MERN</span> stack and{" "}
-              <span className="text-white">Next.js</span>.
+              <span className="text-slate-900 dark:text-white">MERN</span> stack
+              and{" "}
+              <span className="text-slate-900 dark:text-white">Next.js</span>.
               <br />
               <br /> I&apos;ve worked on a variety of projects, including
               e-commerce platforms, financial management systems, and personal
@@ -68,21 +70,22 @@ const About = () => {
               value learning and staying current with the latest technologies,
               applying best practices to ensure my work is maintainable and
               future-proof. My goal is always to create applications that not
-              only work well but also exceed user expectations.{" "}
+              only work well but also exceed user expectations.
             </motion.p>
           </div>
           <motion.div
-            className="flex items-center justify-center w-full h-full relative"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-50px" }}
             transition={{ duration: 0.7, delay: 0.4 }}
+            className="justify-self-center"
           >
-            <motion.img
-              src={"/code.png"}
-              alt={"code"}
-              height={100}
-              width={500}
+            <Image
+              src={"/subodh.png"}
+              alt={"subodh"}
+              height={300}
+              width={300}
+              className="rounded-full h-80 w-80 object-cover"
             />
           </motion.div>
         </>
@@ -115,21 +118,26 @@ const About = () => {
                     Frontend Developer Intern
                   </CardTitle>
                   <h3 className="text-base">Void Nepal Pvt. Ltd.</h3>
-                  <CardDescription className="text-slate-500 text-base flex items-center gap-1 font-semi">
+                  <CardDescription className="text-slate-500 text-base flex items-center gap-1">
                     May <GoDash /> Sep 2024
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="text-slate-400 text-base">
+                <CardContent className="dark:text-slate-400 text-slate-700 text-base">
                   Worked on building and optimizing user interfaces using{" "}
-                  <span className="text-white">React</span>,{" "}
-                  <span className="text-white">React Query</span>, and{" "}
-                  <span className="text-white">Next.js</span>. Focused on
-                  enhancing performance, improving responsiveness, and ensuring
-                  seamless user experiences. Contributed to UI development,
-                  server-state management, and maintaining high-quality code
-                  through testing and refactoring. Collaborated with
-                  cross-functional teams to tackle frontend challenges and apply
-                  new technologies.
+                  <span className="dark:text-white text-slate-900">React</span>,{" "}
+                  <span className="dark:text-white text-slate-900">
+                    React Query
+                  </span>
+                  , and{" "}
+                  <span className="dark:text-white text-slate-900">
+                    Next.js
+                  </span>
+                  . Focused on enhancing performance, improving responsiveness,
+                  and ensuring seamless user experiences. Contributed to UI
+                  development, server-state management, and maintaining
+                  high-quality code through testing and refactoring.
+                  Collaborated with cross-functional teams to tackle frontend
+                  challenges and apply new technologies.
                 </CardContent>
                 <CardFooter className="flex gap-3">
                   {["React", "Next.js", "TailwindCss"].map((name, index) => (

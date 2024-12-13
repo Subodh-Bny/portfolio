@@ -4,10 +4,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { IoLogoReact } from "react-icons/io5";
 import { GiSpiderAlt } from "react-icons/gi";
+import { useTheme } from "next-themes";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const webRef = useRef<HTMLHRElement>(null);
   const clickWebRef = useRef<HTMLSpanElement>(null);
+
+  const { setTheme } = useTheme();
 
   useGSAP(() => {
     if (webRef.current) {
@@ -44,6 +47,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   });
 
   const handleClick = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+
     if (clickWebRef.current) {
       clickWebRef.current.classList.remove("hidden");
 
@@ -68,7 +73,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <hr className="w-full border-t-2 border-gray-500" />
         <GiSpiderAlt
           size={25}
-          className="-rotate-90 -ml-1 fill-white cursor-pointer"
+          className="-rotate-90 -ml-1  cursor-pointer"
           onClick={handleClick}
         />
         <span ref={clickWebRef} className="absolute -right-4 -z-20 hidden">

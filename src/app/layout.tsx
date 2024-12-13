@@ -5,6 +5,7 @@ import { Poppins } from "next/font/google";
 // import HomeAnimatedDivs from "./components/HomeAnimateDivs";
 import MouseFollow from "../components/MouseFollow";
 import TopBar from "../components/Topbar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600"],
@@ -23,18 +24,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={` ${poppins.variable} antialiased bg-slate-900 text-white font-[family-name:var(--font-poppins)]`}
+        className={` ${poppins.variable} antialiased   font-[family-name:var(--font-poppins)]`}
       >
-        <MouseFollow />
-        <main className="container relative mx-auto py-8 md:py-9 h-screen">
-          {/* <HomeAnimatedDivs /> */}
-          <TopBar />
-          {/* <SocialLinks /> */}
-          {children}
-          <NavLinks />
-        </main>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <MouseFollow />
+          <main className="container relative mx-auto py-8 md:py-9 h-screen">
+            {/* <HomeAnimatedDivs /> */}
+            <TopBar />
+            {/* <SocialLinks /> */}
+            {children}
+            <NavLinks />
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

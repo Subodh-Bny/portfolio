@@ -32,7 +32,10 @@ const TopBar = () => {
           Subodh<span className="text-green-500">.</span>
         </Link>
       </h1>
-      <ul className="flex gap-3 text-white" ref={linkRef}>
+      <ul
+        className="flex gap-3 text-slate-900 dark:text-slate-300"
+        ref={linkRef}
+      >
         {links.map((link, index) => (
           <li key={index}>
             <Link href={link.href} target="_blank">
