@@ -18,6 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
         // Adjust the height to stretch to the top of the heading
         const targetHeight = (headingRect.top + window.scrollY) * 2; // Account for scrolling
+
         webElement.style.height = `${targetHeight}px`;
         webElement.style.left = `${headingRect.left - 50}px`;
         webElement.style.top = `${-headingRect.top}px`;
