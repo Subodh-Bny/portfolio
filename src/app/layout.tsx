@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={` ${poppins.variable} antialiased   font-[family-name:var(--font-poppins)]`}
       >
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <MouseFollow />
           <main className="container relative mx-auto py-8 md:py-9 h-screen">
             {/* <HomeAnimatedDivs /> */}
