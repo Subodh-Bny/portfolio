@@ -21,6 +21,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         webElement.style.height = `${targetHeight}px`;
         webElement.style.left = `${headingRect.left - 50}px`;
         webElement.style.top = `${-headingRect.top}px`;
+        webElement.classList.add("md:flex");
       }
     };
 
@@ -51,6 +52,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   const handleClick = () => {
     if (webRef.current) {
+      gsap.killTweensOf(webRef.current);
+
       gsap.fromTo(
         webRef.current,
         { y: 0 },
@@ -62,20 +65,20 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             gsap.to(webRef.current, {
               y: 0,
               ease: "elastic",
-              duration: 3,
+              duration: 2,
             });
-            setTheme((prev) => (prev === "light" ? "dark" : "light"));
           },
         }
       );
     }
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
   return (
     <>
       <div
         ref={webRef}
-        className="absolute   border z-10 hidden md:flex items-center justify-center border-gray-500 "
+        className="absolute   border z-10 hidden  items-center justify-center border-gray-500 "
       >
         <GiSpiderAlt
           size={25}
