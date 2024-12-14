@@ -9,11 +9,10 @@ const MouseFollow = () => {
 
   useGSAP(() => {
     if (boxRef.current) {
+      // Center the flair relative to the mouse
       gsap.set(boxRef.current, { xPercent: -50, yPercent: -50 });
 
-      const boxWidth = boxRef.current.offsetWidth;
-      const boxHeight = boxRef.current.offsetHeight;
-
+      // Create GSAP quick setters for smooth transitions
       const xTo = gsap.quickTo(boxRef.current, "x", {
         duration: 0.6,
         ease: "power3",
@@ -24,31 +23,12 @@ const MouseFollow = () => {
       });
 
       const handleMouseMove = (e: MouseEvent) => {
-        // Account for the scroll position of the document
-        const scrollX = window.scrollX || 0;
-        const scrollY = window.scrollY || 0;
-
-        // Calculate the viewport bounds dynamically
-        const viewportWidth = document.documentElement.clientWidth;
-        const viewportHeight = document.documentElement.clientHeight;
-
-        // Constrain the movement within the visible viewport
-        const constrainedX = Math.max(
-          boxWidth / 2,
-          Math.min(viewportWidth - boxWidth / 2, e.clientX)
-        );
-
-        const constrainedY = Math.max(
-          boxHeight / 2,
-          Math.min(viewportHeight - boxHeight / 2, e.clientY)
-        );
-
-        // Add the scroll offset to ensure proper tracking in scrollable pages
-        xTo(constrainedX + scrollX);
-        yTo(constrainedY + scrollY);
+        // Use clientX and clientY directly for fixed positioning
+        xTo(e.clientX);
+        yTo(e.clientY);
       };
 
-      // Add event listener for mouse movement
+      // Add mousemove event listener
       window.addEventListener("mousemove", handleMouseMove);
 
       // Cleanup event listener on component unmount
@@ -61,7 +41,7 @@ const MouseFollow = () => {
   return (
     <div
       ref={boxRef}
-      className="flair absolute bg-blue-500/20 w-56 h-56 rounded-full pointer-events-none blur-3xl"
+      className="flair fixed bg-blue-500/20 w-56 h-56 rounded-full pointer-events-none blur-3xl"
     ></div>
   );
 };
