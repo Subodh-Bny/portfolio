@@ -33,7 +33,7 @@ const TopBar = () => {
           Subodh<span className="text-green-500">.</span>
         </Link>
       </h1>
-      <SideSheet />
+      <SideSheet socialLinks={links} />
       <ul
         className=" gap-3 text-slate-900 dark:text-slate-300 hidden md:flex"
         ref={linkRef}

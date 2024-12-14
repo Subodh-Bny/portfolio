@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={` ${poppins.variable} antialiased   font-[family-name:var(--font-poppins)]`}
+        className={` ${poppins.variable} antialiased   font-[family-name:var(--font-poppins)] overflow-x-hidden`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
           <MouseFollow />

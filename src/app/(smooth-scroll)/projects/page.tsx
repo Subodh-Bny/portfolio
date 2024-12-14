@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-import { Section } from "../../../components/LazyContainer";
+import { Section } from "../LazyContainer";
 import { Heading, Paragraph } from "@/components/AnimatedTags";
 
 const Projects = () => {

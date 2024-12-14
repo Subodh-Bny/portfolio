@@ -4,8 +4,9 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
-const links = [
+export const links = [
   { name: "Projects", href: "/projects" },
   { name: "About", href: "/about" },
   { name: "Home", href: "/" },
@@ -16,7 +17,7 @@ const NavLinks = () => {
   const pathname = usePathname();
 
   useGSAP(() => {
-    if (linkRef?.current) {
+    if (linkRef.current) {
       gsap.from(Array.from(linkRef.current.children), {
         y: 20,
         opacity: 0,
@@ -27,15 +28,19 @@ const NavLinks = () => {
   });
 
   return (
-    <nav className="hidden md:block fixed  top-1/2 -right-11 ">
+    <nav className="hidden md:block fixed top-1/2 -right-11">
       <ul ref={linkRef} className="flex gap-3 -rotate-90 transition-all">
         {links.map((link) => (
           <li key={link.name}>
             <Link
               href={link.href}
-              className={`hover:line-through transition-all  dark:hover:text-white ${
-                pathname === link.href ? "text-white" : "dark:text-slate-400"
-              }`}
+              aria-current={pathname === link.href ? "page" : undefined}
+              className={clsx(
+                "hover:line-through transition-all dark:hover:text-white",
+                pathname === link.href
+                  ? "dark:text-white text-black"
+                  : "text-slate-400"
+              )}
             >
               {link.name}
             </Link>
