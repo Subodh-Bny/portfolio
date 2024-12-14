@@ -1,22 +1,20 @@
 "use client";
 import React from "react";
 
-import Experience from "./experience";
-import About from "./about";
 import { Section } from "../../../components/LazyContainer";
+import { Heading, Paragraph } from "@/components/AnimatedTags";
 
-Section.displayName = "Section";
-
-const AboutPage = () => {
+const Projects = () => {
   const sections = [
     {
-      content: <About />,
-    },
-    {
-      content: <Experience />,
+      content: (
+        <div className="space-y-6">
+          <Heading heading="Featured Project" />
+          <Paragraph>hi</Paragraph>
+        </div>
+      ),
     },
   ];
-
   return (
     <div className="container mx-auto space-y-16 ">
       {sections.map((section, index) => (
@@ -26,4 +24,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default Projects;

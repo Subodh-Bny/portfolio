@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
+
 import {
   Card,
   CardTitle,
@@ -11,19 +12,13 @@ import {
 import { GoDash } from "react-icons/go";
 import { Badge } from "@/components/ui/badge";
 import { experiences } from "@/constants/experiences";
+import { Heading } from "@/components/AnimatedTags";
 
 const Experience = () => {
   return (
     <div className="w-full space-y-6">
-      <motion.h2
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: false, margin: "-50px" }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100"
-      >
-        Experience
-      </motion.h2>
+      <Heading heading="Experience" />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

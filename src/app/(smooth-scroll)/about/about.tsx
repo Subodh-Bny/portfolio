@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
+import { Heading, Paragraph } from "@/components/AnimatedTags";
 
 const About = () => {
   return (
@@ -21,22 +22,8 @@ const About = () => {
         />
       </motion.div>
       <div className="w-full space-y-6">
-        <motion.h2
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100"
-        >
-          About Me
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="dark:text-slate-400 text-slate-600 text-base leading-relaxed"
-        >
+        <Heading heading="About me" />
+        <Paragraph>
           I&apos;m a developer passionate about building reliable, efficient,
           and user-friendly web applications. I enjoy creating seamless
           experiences by blending clean code with scalable solutions, ensuring
@@ -53,7 +40,7 @@ const About = () => {
           ensure my work is maintainable and future-proof. My goal is always to
           create applications that not only work well but also exceed user
           expectations.
-        </motion.p>
+        </Paragraph>
       </div>
     </div>
   );

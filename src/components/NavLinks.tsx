@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
+  { name: "Projects", href: "/projects" },
   { name: "About", href: "/about" },
   { name: "Home", href: "/" },
 ];
@@ -26,14 +27,14 @@ const NavLinks = () => {
   });
 
   return (
-    <nav className="hidden md:block fixed  top-1/2 -right-1 ">
-      <ul ref={linkRef} className="flex gap-3 -rotate-90">
+    <nav className="hidden md:block fixed  top-1/2 -right-11 ">
+      <ul ref={linkRef} className="flex gap-3 -rotate-90 transition-all">
         {links.map((link) => (
           <li key={link.name}>
             <Link
               href={link.href}
               className={`hover:line-through transition-all  dark:hover:text-white ${
-                pathname === link.href ? "hidden" : "dark:text-slate-400"
+                pathname === link.href ? "text-white" : "dark:text-slate-400"
               }`}
             >
               {link.name}
