@@ -11,6 +11,9 @@ const MouseFollow = () => {
     if (boxRef.current) {
       gsap.set(boxRef.current, { xPercent: -50, yPercent: -50 });
 
+      const boxWidth = boxRef.current.offsetWidth;
+      const boxHeight = boxRef.current.offsetHeight;
+
       const xTo = gsap.quickTo(boxRef.current, "x", {
         duration: 0.6,
         ease: "power3",
@@ -21,14 +24,37 @@ const MouseFollow = () => {
       });
 
       const handleMouseMove = (e: MouseEvent) => {
+        // Account for the scroll position of the document
         const scrollX = window.scrollX || 0;
         const scrollY = window.scrollY || 0;
 
-        xTo(e.clientX + scrollX);
-        yTo(e.clientY + scrollY);
+        // Calculate the viewport bounds dynamically
+        const viewportWidth = document.documentElement.clientWidth;
+        const viewportHeight = document.documentElement.clientHeight;
+
+        // Constrain the movement within the visible viewport
+        const constrainedX = Math.max(
+          boxWidth / 2,
+          Math.min(viewportWidth - boxWidth / 2, e.clientX)
+        );
+
+        const constrainedY = Math.max(
+          boxHeight / 2,
+          Math.min(viewportHeight - boxHeight / 2, e.clientY)
+        );
+
+        // Add the scroll offset to ensure proper tracking in scrollable pages
+        xTo(constrainedX + scrollX);
+        yTo(constrainedY + scrollY);
       };
 
+      // Add event listener for mouse movement
       window.addEventListener("mousemove", handleMouseMove);
+
+      // Cleanup event listener on component unmount
+      return () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+      };
     }
   }, []);
 
