@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { Heading, Paragraph } from "@/components/AnimatedTags";
+import { Heading, Content } from "@/components/AnimatedTags";
 
 const About = () => {
   return (
@@ -23,7 +23,7 @@ const About = () => {
       </motion.div>
       <div className="w-full space-y-6">
         <Heading heading="About me" />
-        <Paragraph>
+        <Content>
           I&apos;m a developer passionate about building reliable, efficient,
           and user-friendly web applications. I enjoy creating seamless
           experiences by blending clean code with scalable solutions, ensuring
@@ -40,7 +40,7 @@ const About = () => {
           ensure my work is maintainable and future-proof. My goal is always to
           create applications that not only work well but also exceed user
           expectations.
-        </Paragraph>
+        </Content>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import React from "react";
 
 import Experience from "./experience";
 import About from "./about";
-import { Section } from "../LazyContainer";
+import { Section } from "../../../components/LazyContainer";
 
 Section.displayName = "Section";
 

@@ -16,9 +16,9 @@ export const Heading = ({ heading }: { heading: string }) => {
   );
 };
 
-export const Paragraph = ({ children }: { children: React.ReactNode }) => {
+export const Content = ({ children }: { children: React.ReactNode }) => {
   return (
-    <motion.p
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, margin: "-50px" }}
@@ -26,6 +26,6 @@ export const Paragraph = ({ children }: { children: React.ReactNode }) => {
       className="dark:text-slate-400 text-slate-600 text-base leading-relaxed"
     >
       {children}
-    </motion.p>
+    </motion.div>
   );
 };

@@ -42,12 +42,7 @@ const Experience = () => {
             </CardContent>
             <CardFooter className="flex flex-wrap gap-2">
               {exp.tech.map((tech, index) => (
-                <Badge
-                  key={index}
-                  className="rounded-lg bg-cyan-600/[0.1] text-cyan-600 hover:text-cyan-200 hover:bg-cyan-600 dark:text-cyan-400 dark:hover:text-cyan-200 cursor-pointer text-xs md:text-sm"
-                >
-                  {tech}
-                </Badge>
+                <Badge key={index}>{tech}</Badge>
               ))}
             </CardFooter>
           </Card>

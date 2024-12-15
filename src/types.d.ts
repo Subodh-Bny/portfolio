@@ -5,3 +5,11 @@ interface Experience {
   description: React.ReactNode;
   tech: string[];
 }
+
+interface Project {
+  image: string;
+  name: string;
+  description: string;
+  tech: string[];
+  href: string;
+}
