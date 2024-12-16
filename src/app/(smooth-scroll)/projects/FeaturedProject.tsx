@@ -69,10 +69,11 @@ const FeaturedProject: React.FC = () => {
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
         >
           <Content>
-            Spend Mentor: A personal finance management platform built with
-            Next.js and MongoDB. It enables users to track expenses, manage
-            budgets, set savings goals, and receive personalized recommendations
-            using advanced analytics.
+            <span className="dark:text-white text-black">Spend Mentor:</span> A
+            personal finance management platform built with Next.js and MongoDB.
+            It enables users to track expenses, manage budgets, set savings
+            goals, and receive personalized recommendations using advanced
+            analytics.
           </Content>
         </motion.div>
         <motion.h3
@@ -100,14 +101,17 @@ const FeaturedProject: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Globe className="text-slate-500" size={25} />
+            <Globe className="text-slate-500 hover:text-cyan-500" size={25} />
           </Link>
           <Link
             href="https://github.com/Subodh-Bny/SpendMentor"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaGithub className="text-slate-500" size={25} />
+            <FaGithub
+              className="text-slate-500 hover:text-cyan-500"
+              size={25}
+            />
           </Link>
         </motion.div>
       </motion.div>

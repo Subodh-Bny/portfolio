@@ -10,7 +10,7 @@ import SideSheet from "./SideSheet";
 const links = [
   { icon: FaGithub, href: "https://github.com/Subodh-Bny/" },
   { icon: FaLinkedin, href: "https://linkedin.com/in/subodh-adh" },
-  { icon: BiLogoGmail, href: "mailto:adhikarisubodh77@gmail.com" },
+  { icon: BiLogoGmail, href: "mailto:adhikarisubodh2003@gmail.com" },
 ];
 
 const TopBar = () => {
