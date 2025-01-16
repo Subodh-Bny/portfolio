@@ -14,10 +14,11 @@ const About = () => {
         className="w-full flex justify-center mb-8"
       >
         <Image
-          src="/subodh-cyan.png"
+          src="/subodh-work.jpg"
           alt="subodh"
           height={300}
           width={300}
+          priority
           className="rounded-full h-60 w-60 md:h-80 md:w-80 object-cover"
         />
       </motion.div>
