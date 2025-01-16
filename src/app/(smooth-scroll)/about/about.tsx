@@ -14,7 +14,7 @@ const About = () => {
         className="w-full flex justify-center mb-8"
       >
         <Image
-          src="/subodh-work.jpg"
+          src="/subodh-work.png"
           alt="subodh"
           height={300}
           width={300}
