@@ -20,7 +20,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         const targetHeight = (headingRect.top + window.scrollY) * 2; // Account for scrolling
 
         webElement.style.height = `${targetHeight}px`;
-        webElement.style.left = `${headingRect.left - 50}px`;
+        webElement.style.right = `150px`;
         webElement.style.top = `${-headingRect.top}px`;
         webElement.classList.add("md:flex");
       }
