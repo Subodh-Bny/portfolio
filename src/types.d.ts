@@ -4,6 +4,7 @@ interface Experience {
   to: string;
   description: React.ReactNode;
   tech: string[];
+  company?: string;
 }
 
 interface Project {
